@@ -7,11 +7,17 @@
 # Весь текст може бути представлений лише одним словом та все
 # Вхідні параметри: Рядок.
 # Вихідні параметри: Рядок.
-
 def first_word(text):
-    """ Пошук першого слова """
-    pass
-
+   text1=text.replace(".", " ").replace(',', ' ')
+   text1=text1.strip()
+   if text1.find(' ')!=-1:
+       text1=text1[:text1.find(' ')]
+       if text1[-1]==',':
+           return text1[:-1]
+       else:
+           return text1
+   else:
+       return text
 assert first_word("Hello world") == "Hello", 'Test1'
 assert first_word("greetings, friends") == "greetings", 'Test2'
 assert first_word("don't touch it") == "don't", 'Test3'
